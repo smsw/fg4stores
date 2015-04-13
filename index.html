@@ -527,13 +527,12 @@ $(function(){
   $(start_note).appendTo('.panel__2');
 	
   $('.panel__1').on('click', 'span', function(){
-		var link = $(this);
-    var stores = $('.region ul').eq($(this).index()).clone();
+    var link = $(this), stores = $('.region ul').eq($(this).index()).clone();
     $('.panel__2').children().remove();
     stores.appendTo('.panel__2');
-		regions.removeClass('active');
+    regions.removeClass('active');
     link.toggleClass('active');
-	});
+  });
 }());
 </script>
 </body>
