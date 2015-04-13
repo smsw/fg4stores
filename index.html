@@ -510,7 +510,7 @@ $(function(){
   regions.clone();
   regions.appendTo('.panel__1');
   var start_note = '<span class="start_note">Click a region on the left</span>';
-  $('.panel__2').appendTo(start_note);
+  $(start_note).appendTo('.panel__2');
 	
   $('.panel__1').on('click', 'span', function(){
 		var link = $(this);
