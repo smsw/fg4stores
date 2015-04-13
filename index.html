@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FG4 Store Locator</title>
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<style>
+  body {
+    overflow: hidden;
+    font-family: sans-serif;
+    line-height: 1.6;
+    font-size: 1em;
+  }
+  .panel__1, .panel__2 {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+    bottom: 0;
+    width: 40%;
+    background: #CCC;
+	}
+  .panel__2 {
+    width: 59.6%;
+    left: 40%;
+    background: #EEE;
+    overflow-y: scroll;
+    padding: 0.2%;
+  }
+  .panel__1 span {
+    display: block;
+    background: #FFF;
+    margin: 1%;
+    padding: 0.8em;
+  }
+  .panel__1 span.active {
+    background: #EEE;
+    margin-right: 0;
+  }
+  .panel__1 span:hover {
+    background: #BBB;
+    cursor: pointer;
+  }
+  .panel__1 span.active:hover {
+    background: #EEE;
+  }
+  .panel__2 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .panel__2 ul li {
+    background: #FFF;
+    padding: 1em;
+    margin: 0.2em;  
+  }
+  .start_note {
+    text-align: center;
+    display: block;
+    padding: 40% 0;
+  }
+	.regions {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.region {
+		background-color: #EEE;
+		padding: 5px 10px;
+		margin: 5px;
+	}
+	.region:hover {
+		cursor: pointer;
+	}
+	.region ul {
+		display: none;
+	}
+	.active ul {
+		display: block;
+	}
+	</style>
+</head>
+<body>
+<div class="panel__1"></div>
+<div class="panel__2"></div>
+<ul class="regions">
+    <li class="region">
+        <span>Azerbaijan</span>
+        <ul>
+            <li>
+                <h4>Nergiz Mall</h4>
+                <p>42 Nizami
+                    <br> Baku
+                    <br> Azerbaijan
+                    <br> AZ1005
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li class="region">
+        <span>Egypt</span>
+        <ul>
+            <li>
+                <h4>Mall of Arabia Cairo</h4>
+                <p>6th of October City
+                    <br> Juhaynah Square
+                    <br> Cairo
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li class="region">
+        <span>Georgia</span>
+        <ul>
+            <li>
+                <h4>Mall Of Georgia</h4>
+                <p>16th km
+                    <br> D. Aghmashenebeli Alley
+                    <br> Tbilisi
+                    <br> Georgia
+                    <br> 0131
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li class="region">
+        <span>Kazakhstan</span>
+        <ul>
+            <li>
+                <h4>Aruzhan Mall</h4>
+                <p>8/1 Zhansugurov Street,
+                    <br> Astana
+                    <br> KAZ 10000</p>
+            </li>
+            <li>
+                <h4>Khan Shatyr</h4>
+                <p>Astana
+                    <br> Kazakhstan
+                    <br> 37 Turan Ave</p>
+            </li>
+        </ul>
+    </li>
+    <li class="region">
+        <span>Morocco</span>
+        <ul>
+            <li>
+                <h4>Anfa Place Mall</h4>
+                <p>Anfa Place
+                    <br> Casablanca
+                    <br> Route Ain Diab
+                    <br>
+                </p>
+                <p>212 (0)5-22-77-89-80</p>
+            </li>
+        </ul>
+    </li>
+    <li class="region">
+        <span>Saudi Arabia (Central)</span>
+        <ul>
+            <li>
+                <h4>Akkariya Mall</h4>
+                <p>Al Olaya Street
+                    <br> Riyadh
+                    <br> Kingdom of Saudi Arabia</p>
+            </li>
+            <li>
+                <h4>Al Nakheel Plaza</h4>
+                <p>King Abdullah Street
+                    <br> Buraydah 51491
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 3816822</p>
+            </li>
+            <li>
+                <h4>Al Othaim Mall</h4>
+                <p>Ring Road Al Rabwa
+                    <br> P.O.Box: 28090
+                    <br> Riyadh 11531
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 4456740</p>
+            </li>
+            <li>
+                <h4>ArRiyadh&nbsp;Sahara Mall</h4>
+                <p>Intersection of
+                    <br> King Abdulaziz Road
+                    <br> and King Abdullah Road
+                    <br> P.O. Box 803
+                    <br> Riyadh 11421
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 4520252</p>
+            </li>
+            <li>
+                <h4>Badeiya Mall</h4>
+                <p>Madinah Al Mnoara Badia Area Riyadh
+                    <br> Kingdom of Saudi Arabia</p>
+            </li>
+            <li>
+                <h4>Hayat Mall</h4>
+                <p>King Abdulaziz Road
+                    <br> PO Box 9261
+                    <br> Riyadh 11413
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 2056837</p>
+            </li>
+            <li>
+                <h4>Hudaiti Mall</h4>
+                <p>Al Kharj Way
+                    <br> Al Kharj
+                    <br> Kingdom of Saudi Arabia
+                    <br>
+                </p>
+                <p>(+966) 1 5512704</p>
+            </li>
+            <li>
+                <h4>Khurais Plaza</h4>
+                <p>Khurais Road
+                    <br> Exit 30
+                    <br> P.O.Box: 341904
+                    <br> Riyadh 11333
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 2096509</p>
+            </li>
+            <li>
+                <h4>Kingdom Centre</h4>
+                <p>King Fahad Road
+                    <br> Al Ulayya
+                    <br> P.O.Box: 230011
+                    <br> Riyadh 111321
+                    <br> Kingdom of Saudi Arabia</p>
+            </li>
+            <li>
+                <h4>Onaizah Mall</h4>
+                <p>Onaizah
+                    <br> Al Qasim
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 3637318</p>
+            </li>
+            <li>
+                <h4>Riyadh Gallery</h4>
+                <p>King Fahed Road
+                    <br> P.O.Box: 240226
+                    <br> Riyadh 11322
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 2077848</p>
+            </li>
+            <li>
+                <h4>Sahara Plaza</h4>
+                <p>King Abdullah bin Abdul Aziz Road
+                    <br> Riyadh
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 2290593</p>
+            </li>
+            <li>
+                <h4>Salaam Plaza</h4>
+                <p>Badia'a Road
+                    <br> Riyadh
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 2472106</p>
+            </li>
+            <li>
+                <h4>Tabuk Mall</h4>
+                <p>Al Salhea Area
+                    <br> Tabuk
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 1 4233720</p>
+            </li>
+        </ul>
+    </li>
+    <li class="region">
+        <span>Saudi Arabia (Eastern)</span>
+        <ul>
+            <li>
+                <h4>Al Ahsa Mall</h4>
+                <p>Al Dhahran Street
+                    <br> Al Ahsa
+                    <br> Saudi Arabia</p>
+                <p>(+966) 3 5325579</p>
+            </li>
+            <li>
+                <h4>Corniche Khober</h4>
+                <p>Turki Road
+                    <br> Corniche
+                    <br> Al Khobar </p>
+                <p>(+996) 3 8961046</p>
+            </li>
+            <li>
+                <h4>Ibn Khaldoon Plaza</h4>
+                <p>King Fahd Street
+                    <br> (Old Ibn Khaldoun Street)
+                    <br> Dammam
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 3 8430596</p>
+            </li>
+            <li>
+                <h4>Mall of Dhahran</h4>
+                <p>P.O.Box 39450
+                    <br> King Saud Road
+                    <br> Dhahran 34457
+                    <br> Al-Khobar
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 3 8684330</p>
+            </li>
+            <li>
+                <h4>Marina Mall</h4>
+                <p>Jazan
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 3 8095067</p>
+            </li>
+            <li>
+                <h4>Rashid Mall</h4>
+                <p>Al Sultaneyah
+                    <br> Al Khobar 34448
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 3 8655549</p>
+            </li>
+            <li>
+                <h4>Shatea Mall </h4>
+                <p>Dammam
+                    <br> Kingdom of Saudi Arabia </p>
+                <p>(+966) 3 8096543</p>
+            </li>
+            <li>
+                <h4>Venicia Khobar</h4>
+                <p>Airport Road
+                    <br> Dharan
+                    <br> Al Khobar
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 3 8965926</p>
+            </li>
+        </ul>
+    </li>
+    <li class="region">
+        <span>Saudi Arabia (Western)</span>
+        <ul>
+            <li>
+                <h4> Andalus Mall</h4>
+                <p>King Abdullah Road
+                    <br> Jeddah
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 6303716</p>
+            </li>
+            <li>
+                <h4>Al Hijaz Center</h4>
+                <p>Siteen Street
+                    <br> Bawady Area
+                    <br> Jeddah
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 6971431</p>
+            </li>
+            <li>
+                <h4>Al Jamea Mall</h4>
+                <p>Jeddah
+                    <br> Al Jamea Street
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 6815878</p>
+            </li>
+            <li>
+                <h4>Al Noor Mall</h4>
+                <p>Al Daery Road
+                    <br> Madinah
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 4 8493989</p>
+            </li>
+            <li>
+                <h4>Aseer Mall</h4>
+                <p>Abha
+                    <br> P.O.Box 9261
+                    <br> Riyadh 11413
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 7 2253051</p>
+            </li>
+            <li>
+                <h4>Aziz Mall</h4>
+                <p>Al Safa Road
+                    <br> Jeddah
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 6161953</p>
+            </li>
+            <li>
+                <h4>Dakheel Madinah</h4>
+                <p>Sultanha Street
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 4 8467088</p>
+            </li>
+            <li>
+                <h4>Dareen Mall </h4>
+                <p>Al Khaleej Road
+                    <br> Aziziya
+                    <br> Shihat
+                    <br> PO Box 9261
+                    <br> Riyadh 11413
+                    <br>
+                </p>
+            </li>
+            <li>
+                <h4>Haifa Mall</h4>
+                <p>(In front of Al Hamra Hotel)
+                    <br> Palasteen Street
+                    <br> Al Hamra District
+                    <br> Jeddah
+                </p>
+            </li>
+            <li>
+                <h4>Herra Avenue</h4>
+                <p>Herra Street
+                    <br> Jeddah 21311
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 6994331</p>
+            </li>
+            <li>
+                <h4>Herra International Mall</h4>
+                <p>Heera Street
+                    <br> Jeddah 21.615307
+                    <br> Makkah
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 6072408</p>
+            </li>
+            <li>
+                <h4>Hijaz Makkah</h4>
+                <p>Makkah Jeddah Highway
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 5605302</p>
+            </li>
+            <li>
+                <h4>Khamis Avenue</h4>
+                <p>Khamis Mushayt
+                    <br> King Khalid Road
+                    <br> Alronah District
+                    <br> Jeddah
+                </p>
+            </li>
+            <li>
+                <h4>Makkah Mall</h4>
+                <p>King Abdullah Bin Abdulaziz Rd, Makkah, Saudi Arabia, 24246</p>
+            </li>
+            <li>
+                <h4>Mall of Arabia</h4>
+                <p>Airport Road
+                    <br> Jeddah
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 6122753</p>
+            </li>
+            <li>
+                <h4>Tahlia Street</h4>
+                <p>Jeddah
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 6658027</p>
+            </li>
+            <li>
+                <h4>Taif International Centre</h4>
+                <p>Khalid Bin Al Waleed Street
+                    <br> Taif
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 7486987</p>
+            </li>
+            <li>
+                <h4>Taif Mall</h4>
+                <p>Al Shahar Street
+                    <br> Kingdom of Saudi Arabia</p>
+                <p>(+966) 2 7438035</p>
+            </li>
+        </ul>
+    </li>
+    <li class="region">
+        <span>United Arab Emirates</span>
+        <ul>
+            <li>
+                <h4>Al Ghurair Centre</h4>
+                <p>Al Rigga Road,
+                    <br> Deira,
+                    <br> Dubai,
+                    <br> United Arab Emirates</p>
+            </li>
+            <li>
+                <h4>Al Hamra Mall</h4>
+                <p>E11,
+                    <br> Sheikh Mohammad Bin Salem Road,
+                    <br> Al Jazirah Al Hamra,
+                    <br> Ras Al-Khaimah</p>
+                <p>(+971) 7 2434444</p>
+            </li>
+            <li>
+                <h4>Arabian Center</h4>
+                <p>Khawaneej Road,
+                    <br> Al Mizhar,
+                    <br> Near Mirdif,
+                    <br> Dubai
+                </p>
+                <p>(+971) 4 2845555</p>
+            </li>
+            <li>
+                <h4>Dalma Mall</h4>
+                <p>Highway E30,
+                    <br> ICAD 1,
+                    <br> Musaffah,
+                    <br> Abu Dhabi</p>
+                <p>(+971) 2 5500936</p>
+            </li>
+            <li>
+                <h4>Deerfields Townsquare Shopping Centre</h4>
+                <p>Abu Dhabi-Dubai Highway,
+                    <br> Al Bahya,
+                    <br> Abu Dhabi</p>
+                <p>(+971) 2 5010888</p>
+            </li>
+        </ul>
+    </li>
+</ul>
+<script>
+$(function(){
+  var regions = $('.region span');
+  regions.clone();
+  regions.appendTo('.panel__1');
+  var start_note = '<span class="start_note">Click a region on the left</span>';
+  $('.panel__2').appendTo(start_note);
+	
+  $('.panel__1').on('click', 'span', function(){
+		var link = $(this);
+    var stores = $('.region ul').eq($(this).index()).clone();
+    $('.panel__2').children().remove();
+    stores.appendTo('.panel__2');
+		regions.removeClass('active');
+    link.toggleClass('active');
+	});
+}());
+</script>
+</body>
+</html>
